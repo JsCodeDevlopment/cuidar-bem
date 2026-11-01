@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Cuidar Bem — Enfermagem Domiciliar
+   Paleta preservada com contrastes otimizados (WCAG AA / AAA) e efeitos sutis
+   ========================================================================== */
+
+:root {
+  /* Cores Originais Preservadas */
+  --site-primary: #123b50;
+  --site-primary-deep: #0b2634;
+  --site-primary-soft: #1a506b;
+  --site-secondary: #d8a84e;
+  --site-secondary-hover: #e3b65f;
+  --site-secondary-deep: #7a520e; /* Alto contraste para fundos claros */
+  --site-background: #f4f7f6;
+  --site-surface: #ffffff;
+  --site-surface-soft: #eaf0ef;
+  --site-on-primary: #ffffff;
+  --site-on-secondary: #0f232e;
+  --site-on-background: #162830;
+  --site-muted: #435861; /* Contraste > 7:1 sobre #ffffff e #f4f7f6 */
+  --site-line: #d5e0de;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background-color: var(--site-background);
+  color: var(--site-on-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Seleção de texto harmonizada */
+::selection {
+  background-color: rgba(216, 168, 78, 0.28);
+  color: #0b2634;
+}
+
+/* Foco acessível visível */
+:focus-visible {
+  outline: 2px solid var(--site-secondary);
+  outline-offset: 3px;
+}
+
+/* Textura e iluminação sutil para o Hero */
+.hero-mesh {
+  background-color: var(--site-primary);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(216, 168, 78, 0.14) 0%, transparent 42%),
+    radial-gradient(circle at 88% 22%, rgba(43, 114, 148, 0.32) 0%, transparent 48%),
+    radial-gradient(circle at 75% 85%, rgba(216, 168, 78, 0.1) 0%, transparent 40%),
+    linear-gradient(155deg, #0d2e40 0%, #123b50 52%, #0c2836 100%);
+}
+
+/* Padrão de grade médica discreto */
+.subtle-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Anéis decorativos originais reinterpretados com sutileza */
+.orbital-ring {
+  pointer-events: none;
+  border-radius: 9999px;
+  border: 1px solid rgba(216, 168, 78, 0.2);
+  box-shadow:
+    0 0 0 40px rgba(216, 168, 78, 0.035),
+    0 0 0 85px rgba(216, 168, 78, 0.02);
+}
+
+/* Efeitos de revelação ao rolar a página (Scroll Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-100 {
+  transition-delay: 100ms;
+}
+.reveal-delay-200 {
+  transition-delay: 200ms;
+}
+.reveal-delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Transições sutis de cards */
+.card-interactive {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px -12px rgba(18, 59, 80, 0.13), 0 4px 16px -2px rgba(18, 59, 80, 0.05);
+}
+
+/* Harmonização de retratos da equipe */
+.portrait-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.portrait-container img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-interactive:hover .portrait-container img {
+  transform: scale(1.03);
+}
+
+/* Efeito de brilho suave em botões primários */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background-color: var(--site-secondary-hover);
+  box-shadow: 0 12px 28px -6px rgba(216, 168, 78, 0.45);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* Navegação com efeito vidro ao rolar */
+header.is-scrolled {
+  background-color: rgba(13, 44, 61, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px -10px rgba(8, 28, 39, 0.35);
+  border-bottom-color: rgba(216, 168, 78, 0.18);
+}
+
+/* Acordeão de dúvidas frequentes */
+.faq-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item[aria-expanded="true"] .faq-content {
+  grid-template-rows: 1fr;
+}
+
+.faq-icon {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item[aria-expanded="true"] .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* Pulso sutil para indicador de disponibilidade */
+@keyframes subtle-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  animation: subtle-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Respeito à preferência de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .card-interactive,
+  .portrait-container img,
+  .btn-gold {
+    transition: none !important;
+  }
+  .pulse-ring::before {
+    animation: none !important;
+  }
+}
+
